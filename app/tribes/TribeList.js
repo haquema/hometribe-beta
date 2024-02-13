@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import Link from 'next/link';
 
 async function getTribes() {
   const tribes = await prisma.tribe.findMany()
@@ -15,8 +16,10 @@ export default async function TribeList() {
     <>
       {listOfTribes && listOfTribes.map((tribe) => (
         <div key={tribe.id} className="border-solid border-black border-2 p-2 m-4">
-          <h3 className="font-semibold text-lg">{tribe.name}</h3>
-          <p className="text-sm">{tribe.description}</p>
+          <Link href={`/tribes/${tribe.id}`}>
+            <h3 className="font-semibold text-lg">{tribe.name}</h3>
+            <p className="text-sm">{tribe.description}</p>
+          </Link>
         </div>
       ))}
       {(listOfTribes === 0 || listOfTribes === null) && (
