@@ -1,0 +1,50 @@
+import CredentialsProvider from 'next-auth/providers/credentials'
+import prisma from '@/lib/prisma'
+import { comparePasswords } from '@/lib/bcrypt'
+
+export const options = {
+  session: {
+    strategy: "jwt",
+    maxAge: 24 * 60 * 60,
+  },
+  providers: [
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: {
+          label: "Email:",
+          type: "text",
+          placeholder: "your-email"
+        },
+        password: {
+          label: "Password:", 
+          type: "password",
+          placeholder: "your-password"
+        }
+      },
+      async authorize(credentials, req) {
+        try {
+          const userExists = await prisma.user.findFirst({
+            where: {
+              email: credentials.email,
+            },
+          })
+
+          if (userExists) {
+            // console.log("User Exists")
+            const isMatch = await comparePasswords(credentials.password, userExists.password);
+
+            if (isMatch) {
+              // console.log("Passwords match")
+              delete userExists.password;
+              return userExists;
+            }
+          }
+        } catch (error) {
+          console.log(error);
+        }
+        return null; 
+      },
+    })
+  ],
+}

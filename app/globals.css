@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: #ffffff;
-  @apply m-8;
+  @apply p-8;
 }
 
 /* h1, h2 {
