@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        "100": "32rem"
+      },
+      width: {
+        "100": "32rem"
+      },
       colors: {
         primary: '#7856ff'
       }

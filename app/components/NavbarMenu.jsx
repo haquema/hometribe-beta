@@ -13,7 +13,7 @@ const NavbarMenu = ({ session }) => {
       <div>
         <Menu>
           <Menu.Button>
-            <div className='border-2 rounded-full p-2 ml-2 flex flex-row space-x-2 hover:shadow'>
+            <div className='border border-stone-300 rounded-full p-2 ml-2 flex flex-row space-x-2 hover:shadow-xl'>
               <Bars3Icon className="h-6" />
               <UserCircleIcon className="h-6" />
             </div>

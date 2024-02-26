@@ -9,7 +9,7 @@ export default async function Navbar() {
   const session = await getServerSession();
 
   return (
-    <nav className="p-4 flex items-center justify-between min-w-96 bg-white">
+    <nav className="p-4 flex items-center justify-between min-w-96">
       <Link href='/' className='text-transparent bg-clip-text bg-gradient-to-l from-orange-600 via-red-900 to-black font-semibold text-2xl'>LearnTribe</Link>
       <div className='order-last flex justify-between items-center '>
         {/* <Link href='/tribes' className='border-2 border-transparent rounded-full py-2 px-3 hover:bg-slate-100'>
