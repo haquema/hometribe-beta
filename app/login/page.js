@@ -8,7 +8,7 @@ export default async function LoginPage() {
     redirect('/')
   }
   return (
-    <div className="grid grid-rows-8 justify-center h-dvh">
+    <div className="flex justify-center relative h-dvh">
       <LoginForm />
     </div>
   )

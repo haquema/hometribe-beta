@@ -23,7 +23,7 @@ export default function LoginForm() {
 
   
   return (
-    <div className='flex flex-col justify-around items-stretch bg-white border border-slate-400 shadow-2xl rounded-lg h-100 w-100 px-6 row-start-2 row-span-1'>
+    <div className='absolute top-20 flex flex-col justify-around items-stretch bg-white border border-slate-400 shadow-2xl rounded-lg h-100 w-100 px-6 row-start-2 row-span-1'>
       <h1 className='font-medium text-xl self-center'>Login here!</h1>
       <form onSubmit={handleSubmit} className="flex flex-col justify-center mt-20" >
         <div className='w-full h-14 border border-slate-500 rounded-t-md'>
