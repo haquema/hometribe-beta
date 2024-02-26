@@ -13,9 +13,9 @@ const NavbarMenu = ({ session }) => {
       <div>
         <Menu>
           <Menu.Button>
-            <div className='border border-stone-300 rounded-full p-2 ml-2 flex flex-row space-x-2 hover:shadow-xl'>
-              <Bars3Icon className="h-6" />
-              <UserCircleIcon className="h-6" />
+            <div className='border-transparent bg-stone-300 rounded-full p-2 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400'>
+              <Bars3Icon className="h-6 text-stone-600" />
+              <UserCircleIcon className="h-6 text-stone-600" />
             </div>
           </Menu.Button>
           <Transition
@@ -27,7 +27,7 @@ const NavbarMenu = ({ session }) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-          <Menu.Items className="absolute right-8 mt-2 w-28 origin-top-right divide-y divide-gray-100 rounded-lg bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+          <Menu.Items className="absolute right-5 mt-2 w-28 origin-top-right divide-y divide-gray-100 rounded-lg bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
             <div className="px-1 py-1">
               {!session && <Menu.Item>
               {({ active }) => (

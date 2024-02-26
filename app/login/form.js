@@ -28,11 +28,11 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit} className="flex flex-col justify-center mt-20" >
         <div className='w-full h-14 border border-slate-500 rounded-t-md'>
           <label className='w-full font-light text-sm px-2' htmlFor='email'>Email:</label>
-          <input className="rounded-md w-full h-8 bg-transparent pl-2" type="text" name="email" id='email'/>
+          <input className="rounded w-full h-8 bg-transparent pl-2" type="text" name="email" id='email'/>
         </div>
-        <div className='flex flex-col w-full h-14 border border-slate-500 rounded-b-md'>
+        <div className='flex flex-col w-full h-14 border border-t-0 border-slate-500 rounded-b-md'>
           <label className='w-full font-light text-sm px-2' htmlFor='password'>Password:</label>
-          <input className="rounded-md h-8 w-full bg-transparent pl-2" type="password" name='password' id='password'/>
+          <input className="rounded h-8 w-full bg-transparent pl-2" type="password" name='password' id='password'/>
         </div>
         <button className="self-center border bg-gradient-to-r from-red-500 via-red-600 to-red-500 rounded-md text-white w-full py-2 mt-6 shadow h-14" type="submit">Login</button>
       </form>

@@ -19,20 +19,20 @@ export default function SignupForm() {
   }
   
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-1" >
-      <label>First Name:
-        <input className="border-2 rounded-md mx-2" type="text" name="firstName" />
+    <form onSubmit={handleSubmit} className="flex flex-col justify-center mt-10" >
+      <label className="w-full h-14 border border-slate-500 rounded-t-md relative font-light text-sm pl-2">First Name:
+        <input className="absolute inset-x-0 bottom-0 rounded w-full h-2/3 bg-transparent pl-2 font-normal text-base" type="text" name="firstName" />
       </label>
-      <label>Last Name:
-        <input className="border-2 rounded-md mx-2" type="text" name='lastName'/>
+      <label className="w-full h-14 border border-t-0 border-slate-500 rounded-b-md relative font-light text-sm pl-2 mb-6">Last Name:
+        <input className="absolute inset-x-0 bottom-0 rounded w-full h-2/3 bg-transparent pl-2 font-normal text-base" type="text" name='lastName'/>
       </label>
-      <label>Email Address:
-        <input type="text" className="border-2 rounded-md mx-2" name='email'/>
+      <label className="w-full h-14 border rounded-md border-slate-500 relative font-light text-sm pl-2 mb-6">Email Address:
+        <input type="text" className="absolute inset-x-0 bottom-0 rounded w-full h-2/3 bg-transparent pl-2 font-normal text-base" name='email'/>
       </label>
-      <label>Password:
-        <input type="password" className="border-2 rounded-md mx-2" name='password'/>
+      <label className="w-full h-14 border rounded-md border-slate-500 relative font-light text-sm pl-2 mb-10">Password:
+        <input type="password" className="absolute inset-x-0 bottom-0 rounded w-full h-2/3 bg-transparent pl-2 font-normal text-base" name='password'/>
       </label>
-      <button className="border-2 bg-blue-300 rounded-md" type="submit">Signup</button>
+      <button className=" mb-6 self-center border bg-gradient-to-r from-red-500 via-red-600 to-red-500 rounded-md text-white w-full py-2 mt-6 shadow h-14" type="submit" type="submit">Signup</button>
     </form>
   )
 }
