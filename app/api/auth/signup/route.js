@@ -14,7 +14,7 @@ export async function POST(request) {
     console.log(emailTaken)
 
     if (emailTaken) {
-      return NextResponse.json({ message: "email already taken"});
+      return NextResponse.json({ message: "email taken"});
     } else {
       const newUser = await prisma.user.create({
         data: {
@@ -25,9 +25,9 @@ export async function POST(request) {
         },
       })
       // console.log(newUser)
-      return NextResponse.json({ message: "signup was successful"});
+      return NextResponse.json({ message: "success"});
     }
   } catch (err) {
-    return NextResponse.json({ message: "signup was unsuccessful", error: {err} });
+    return NextResponse.json({ message: "fail", error: {err} });
   }
 }

@@ -28,6 +28,8 @@ model Child {
   age       Int
   parent    User   @relation(fields: [parentId], references: [id])
   parentId  Int
+
+  @@index([parentId])
 }
 
 enum Gender {

@@ -1,8 +1,11 @@
 'use client'
 import { userSignupSchema } from "../validations/authValidation";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
-  
+  const router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault()
      
@@ -22,9 +25,14 @@ export default function SignupForm() {
       })
 
       let parsedResponse = await response.json();
-      console.log(parsedResponse);
+      if (parsedResponse.message == 'success') {
+        toast.success('Signup successful');
+        router.push('/login');
+      } else if (parsedResponse.message == 'email taken') {
+        toast.error('That email is already associated to an account');
+      }
     } else {
-      console.log("details not input correctly")
+      toast.error('Signup unsuccessful due to input error')
     }
   }
   
