@@ -61,6 +61,7 @@ const NavbarMenu = ({ session }) => {
                   } group flex w-full items-center place-content-center rounded-lg px-2 py-2 text-xs`}
                     onClick={() => {
                       signOut();
+                      console.log("successfully logged out");
                       router.push('/');
                     }}
                   >

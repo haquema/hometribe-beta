@@ -1,9 +1,6 @@
-import { UserGroupIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
-import NavbarMenu from "./NavbarMenu";
+import LogoutButton from './LogoutButton';
 import { getServerSession } from 'next-auth';
-
-
 
 export default async function Navbar() {
   const session = await getServerSession();
@@ -11,13 +8,18 @@ export default async function Navbar() {
   return (
     <nav className="border w-dvs -mx-8 -mt-8 mb-4 bg-stone-200 p-4 flex items-center justify-between shadow-inner">
       <Link href='/' className='text-transparent bg-clip-text bg-gradient-to-l from-orange-600 via-red-900 to-black font-semibold text-xl'>HomeTribe</Link>
-      <div className='order-last flex justify-between items-center '>
-        {/* <Link href='/tribes' className='border-2 border-transparent rounded-full py-2 px-3 hover:bg-slate-100'>
-          <UserGroupIcon className='h-6'/>
-        </Link>
-        <Link href='/tribes/register' className='border-2 border-transparent rounded-full py-2 px-3 hover:bg-slate-100'>Register Your Tribe</Link> */}
-        <NavbarMenu className='order-last' session={session}/>
-      </div>
+      {!session && 
+        <button
+          className='font-medium text-stone-600 border-transparent bg-stone-300 rounded-full p-1 px-3 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400 hover:text-white text-sm'>
+            <Link href='/login'>Sign In</Link>
+        </button>
+      }
+      {!!session && 
+        <LogoutButton
+        classNames={'font-medium text-stone-600 border-transparent bg-stone-300 rounded-full p-1 px-3 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400 hover:text-white text-sm'}
+        text='Logout'
+      />
+      }
     </nav>
   )
 }

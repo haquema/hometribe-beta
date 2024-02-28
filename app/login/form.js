@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { userLoginSchema } from '../validations/authValidation';
 
+
 export default function LoginForm() {
   const router = useRouter();
   async function handleSubmit(event) {
@@ -24,7 +25,7 @@ export default function LoginForm() {
       });
 
       if (!response.error) {
-        console.log("signup was successful");
+        toast.success('Successfully logged in!')
         router.push('/')
         router.refresh()
       }

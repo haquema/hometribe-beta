@@ -1,13 +1,15 @@
 'use client'
 import { useRouter } from "next/navigation"
+import { toast } from 'sonner';
 
 
-export default function Button({session, classNames, text}) {
+export default function EnrolButton({ session, classNames, text}) {
   const router = useRouter();
   
   const handleClick = () => {
     if (session) {
-      router.push("/booked");
+      toast.success('Your space has been booked!')
+      // router.push("/booked");
     } else {
       router.push("/login")
     }

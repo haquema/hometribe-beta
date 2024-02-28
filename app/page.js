@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import eventPoster from "../public/event_poster.png"
-import Button from './components/Button';
+import EnrolButton from './EnrolButton';
 import { getServerSession } from 'next-auth';
 import { ClockIcon, CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
-
 export default async function Home() {
   const session = await getServerSession();
-
+  
   return (
     <main className='flex flex-col items-start'>
       <Image
@@ -43,7 +42,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <Button 
+      <EnrolButton
         session={session} 
         classNames={'bg-red-500 py-2 px-6 rounded-md text-white border-2 w-full my-6'} 
         text='Enrol Now'
