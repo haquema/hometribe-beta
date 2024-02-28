@@ -1,11 +1,11 @@
-import { Montserrat, Work_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 
 // Components
 import Navbar from "./components/Navbar";
 
-const workSans = Work_Sans({ 
+const inter = Inter({ 
   subsets: ["latin"]
  });
 
@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
         <title>HomeTribe</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head> 
-      <body className={workSans.className}>
+      <body className={inter.className}>
         <Navbar />
         {children}
       </body>

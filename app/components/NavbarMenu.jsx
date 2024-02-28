@@ -13,9 +13,10 @@ const NavbarMenu = ({ session }) => {
       <div>
         <Menu>
           <Menu.Button>
-            <div className='border-transparent bg-stone-300 rounded-full p-2 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400'>
-              <Bars3Icon className="h-6 text-stone-600" />
-              <UserCircleIcon className="h-6 text-stone-600" />
+            <div className='text-stone-600 border-transparent bg-stone-300 rounded-full p-1 px-3 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400 hover:text-white text-sm'>
+              {/* <Bars3Icon className="h-6 text-stone-600" />
+              <UserCircleIcon className="h-6 text-stone-600" /> */}
+              Sign In
             </div>
           </Menu.Button>
           <Transition

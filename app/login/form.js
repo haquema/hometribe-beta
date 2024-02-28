@@ -23,16 +23,16 @@ export default function LoginForm() {
 
   
   return (
-    <div className='absolute top-20 flex flex-col justify-around items-stretch bg-white border border-slate-400 shadow-2xl rounded-lg h-100 w-100 px-6 row-start-2 row-span-1'>
-      <h1 className='font-medium text-xl self-center'>Login here!</h1>
+    <div className='absolute top-20 flex flex-col justify-around items-stretch bg-white border border-slate-400 shadow-2xl rounded-lg h-96 w-96 px-6 row-start-2 row-span-1'>
+      <h1 className='font-semibold text-[20px] self-center'>Login here!</h1>
       <form onSubmit={handleSubmit} className="flex flex-col justify-around mt-12" >
-      <label className="w-full h-14 border rounded-t-md border-slate-500 relative font-light text-xs pl-2 pt-1">Email Address:
+      <label className="w-full h-10 border border-stone-300 rounded-md relative font-light text-xs pl-2 pt-1 mb-3">Email Address:
         <input type="text" className="absolute inset-x-0 bottom-0 rounded w-full h-2/3 bg-transparent pl-2 font-normal text-base" name='email'/>
       </label>
-      <label className="w-full h-14 border rounded-b-md border-t-0 border-slate-500 relative font-light text-xs pl-2 pt-1 mb-4">Password:
+      <label className="w-full h-10 border border-stone-300 rounded-md relative font-light text-xs pl-2 pt-1 mb-3">Password:
         <input type="password" className="absolute inset-x-0 bottom-0 rounded w-full h-2/3 bg-transparent pl-2 font-normal text-base" name='password'/>
       </label>
-        <button className="self-center border bg-gradient-to-r from-red-500 via-red-600 to-red-500 rounded-md text-white w-full py-2 mt-6 shadow h-14" type="submit">Login</button>
+        <button className="self-center border bg-gradient-to-r from-red-500 via-red-600 to-red-500 rounded-md text-white w-full py-2 mt-6 shadow h-10" type="submit">Login</button>
       </form>
       <p className='text-sm'>
         Don&apos;t have an account? <Link href="/signup" className='underline font-medium'>Sign up here</Link>

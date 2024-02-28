@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation"
 
 
-export default function Button({session}) {
+export default function Button({session, classNames, text}) {
   const router = useRouter();
   
   const handleClick = () => {
@@ -16,10 +16,10 @@ export default function Button({session}) {
   return (
     <>
       <button
-        className='bg-red-500 py-2 px-6 rounded-md text-white border-2'
+        className={classNames}
         onClick={handleClick}
       >
-        Book your space
+        {text}
       </button>
     </>
   )
