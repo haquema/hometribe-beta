@@ -1,21 +1,31 @@
 'use client'
+import { userSchema } from "../validations/UserValidation";
 
 export default function SignupForm() {
+  
   async function handleSubmit(event) {
     event.preventDefault()
+     
+    let formData = new FormData(event.currentTarget)
+    let inputs = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    }
+    
+    const isValid = await userSchema.isValid(inputs);
+    if (isValid) {
+      const response = await fetch(`/api/auth/signup`, {
+        method: 'POST',
+        body: JSON.stringify(inputs),
+      })
 
-    const formData = new FormData(event.currentTarget)
-    const response = await fetch(`/api/auth/signup`, {
-      method: 'POST',
-      body: JSON.stringify({
-        firstName: formData.get("firstName"),
-        lastName: formData.get("lastName"),
-        email: formData.get("email"),
-        password: formData.get("password"),
-      }),
-    });
-
-    console.log({ response });
+      let parsedResponse = await response.json();
+      console.log(parsedResponse);
+    } else {
+      console.log("details not input correctly")
+    }
   }
   
   return (

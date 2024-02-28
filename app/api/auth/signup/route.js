@@ -6,20 +6,28 @@ export async function POST(request) {
   try {
     const { firstName, lastName, email, password } = await request.json();
     
-    const newUser = await prisma.user.create({
-      data: {
-        firstName: firstName,
-        lastName: lastName,
+    const emailTaken = await prisma.user.findUnique({
+      where: {
         email: email,
-        password: await hashPassword(password),
       },
     })
+    console.log(emailTaken)
 
-    console.log(newUser);
-
-  } catch (e) {
-    console.log({ e });
+    if (emailTaken) {
+      return NextResponse.json({ message: "email already taken"});
+    } else {
+      const newUser = await prisma.user.create({
+        data: {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          password: await hashPassword(password),
+        },
+      })
+      // console.log(newUser)
+      return NextResponse.json({ message: "signup was successful"});
+    }
+  } catch (err) {
+    return NextResponse.json({ message: "signup was unsuccessful", error: {err} });
   }
-
-  return NextResponse.json({ message: "success"});
 }

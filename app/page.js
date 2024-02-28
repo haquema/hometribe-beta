@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import eventPoster from "../public/event_poster.png"
-import Button from './Button';
+import Button from './components/Button';
 import { getServerSession } from 'next-auth';
 import { ClockIcon, CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
