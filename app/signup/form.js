@@ -1,5 +1,5 @@
 'use client'
-import { userSchema } from "../validations/UserValidation";
+import { userSignupSchema } from "../validations/authValidation";
 
 export default function SignupForm() {
   
@@ -14,7 +14,7 @@ export default function SignupForm() {
       password: formData.get("password"),
     }
     
-    const isValid = await userSchema.isValid(inputs);
+    const isValid = await userSignupSchema.isValid(inputs);
     if (isValid) {
       const response = await fetch(`/api/auth/signup`, {
         method: 'POST',

@@ -2,24 +2,35 @@
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
+import { userLoginSchema } from '../validations/authValidation';
 
 export default function LoginForm() {
   const router = useRouter();
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const response = await signIn('credentials', {
-      email: formData.get('email'),
-      password: formData.get('password'),
-      redirect: false,
-    });
 
-    if (!response.error) {
-      router.push('/')
-      router.refresh()
+    const formData = new FormData(event.currentTarget);
+    const inputs = {
+      email: formData.get('email'),
+      password: formData.get('password')
     }
-    
+
+    const isValid = await userLoginSchema.isValid(inputs);
+    if (isValid) {
+      const response = await signIn('credentials', {
+        email: inputs.email,
+        password: inputs.password,
+        redirect: false,
+      });
+
+      if (!response.error) {
+        console.log("signup was successful");
+        router.push('/')
+        router.refresh()
+      }
+    } else {
+      console.log("email or password is incorrect!")
+    }
   };
 
   
