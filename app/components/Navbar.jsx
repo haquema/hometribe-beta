@@ -6,7 +6,7 @@ export default async function Navbar() {
   const session = await getServerSession();
 
   return (
-    <nav className="border w-dvs -mx-8 -mt-8 mb-4 bg-stone-200 p-4 flex items-center justify-between shadow-inner">
+    <nav className="border-none w-dvs -mx-8 -mt-8 mb-8 p-4 flex items-center justify-between shadow-inner">
       <Link href='/' className='text-transparent bg-clip-text bg-gradient-to-l from-orange-600 via-red-900 to-black font-semibold text-xl'>HomeTribe</Link>
       {!session && 
         <button
