@@ -53,8 +53,9 @@ export default async function Home() {
       </div>
       <div className='w-full py-4'>
         <h2 className='w-full border-b border-black font-semibold text-sm mb-2'>Location</h2>
-        <p>Top Tutors</p>
-        <p className='text-sm'>459 Roman Road, London E3 5LX</p>
+        <p className=''>Top Tutors</p>
+        <p className='text-sm my-2'>459 Roman Road, London E3 5LX</p>
+        <iframe className='border-2 border-green-100 rounded-lg w-full' loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=AIzaSyCoS4kwte9eVyHDzAyUV1FJDUTZva7Q0Gk"></iframe>
       </div>
       <div className='w-full py-4'>
         <h2 className='w-full font-semibold text-sm mb-2 border-b border-black'>Host</h2>

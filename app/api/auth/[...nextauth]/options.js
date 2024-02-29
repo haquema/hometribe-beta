@@ -1,4 +1,5 @@
-import CredentialsProvider from 'next-auth/providers/credentials'
+import CredentialsProvider from 'next-auth/providers/credentials';
+// import EmailProvider from 'next-auth/providers/email';
 import prisma from '@/lib/prisma'
 import { comparePasswords } from '@/lib/bcrypt'
 
@@ -8,6 +9,9 @@ export const options = {
     maxAge: 24 * 60 * 60,
   },
   providers: [
+    // EmailProvider({
+
+    // }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
