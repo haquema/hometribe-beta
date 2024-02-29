@@ -3,7 +3,7 @@ import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { userLoginSchema } from '../validations/authValidation';
-
+import { toast } from 'sonner';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -30,7 +30,7 @@ export default function LoginForm() {
         router.refresh()
       }
     } else {
-      console.log("email or password is incorrect!")
+      toast.error("email or password is incorrect!")
     }
   };
 

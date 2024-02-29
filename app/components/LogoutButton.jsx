@@ -8,9 +8,8 @@ export default function LogoutButton({ classNames, text}) {
   const router = useRouter();
   
   const logout = () => {
-    signOut();
+    signOut({redirect: false});
     toast('Successfully logged out');
-    router.push('/');
   }
 
   return (
