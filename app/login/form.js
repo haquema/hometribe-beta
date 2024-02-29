@@ -28,6 +28,9 @@ export default function LoginForm() {
         toast.success('Successfully logged in!')
         router.push('/')
         router.refresh()
+      } else {
+        toast.error('email or password is incorrect');
+        router.refresh();
       }
     } else {
       toast.error("email or password is incorrect!")
