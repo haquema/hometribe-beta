@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <main className='flex flex-col items-start'>
       <Image
-        className='self-center border border-slate-300 rounded-md'
+        className='self-center border border-stone-300 shadow-md shadow-stone-400 rounded-md'
         src={eventPoster}
         width={350}
         height={"auto"}
@@ -43,7 +43,7 @@ export default async function Home() {
       </div>
       <EnrolButton
         session={session} 
-        classNames={'bg-red-500 py-2 px-6 rounded-md text-white border-2 w-full my-6'} 
+        classNames={'bg-red-500 py-2 px-6 rounded-md text-white border-2 w-full my-6 outline outline-transparent outline-1 hover:bg-red-600'} 
         text='Enrol Now'
       />
       <div className='py-4'>

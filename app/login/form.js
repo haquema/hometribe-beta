@@ -50,7 +50,7 @@ export default function LoginForm() {
           <label htmlFor='password' className="absolute top-0 left-0 z-10 w-full pl-2 pt-1 h-7 font-light text-xs">Password:</label>
           <input id='password' name='password' type="password" className="absolute top-0 left-0 h-[46px] z-0 pt-3 w-full rounded-md indent-2 text-base bg-transparent focus:outline-orange-700"/>
         </div>
-        <button className="self-center border bg-gradient-to-r from-red-500 via-red-600 to-red-500 rounded-md text-white w-full py-2 mt-6 shadow h-10" type="submit">Login</button>
+        <button className="self-center border bg-gradient-to-r from-red-500 via-red-600 to-red-500 rounded-md text-white w-full py-2 mt-6 shadow h-10 outline outline-transparent outline-1 hover:outline-red-700" type="submit">Login</button>
       </form>
       <p className='text-sm'>
         Don&apos;t have an account? <Link href="/signup" className='underline font-medium'>Sign up here</Link>
