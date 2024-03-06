@@ -16,6 +16,7 @@ export default async function Home() {
         width={350}
         height={"auto"}
         alt="Poster of the event"
+        priority={true}
       />
       <h1 className='font-[650] text-[22px] mt-8 mb-4 self-start'>Our Homeschool Family: Core Subject Learning</h1>
       <div className='flex flex-row flex-wrap w-full justify-between'>
@@ -53,7 +54,7 @@ export default async function Home() {
         <h2 className='w-full border-b border-black font-semibold text-sm mb-2'>Location</h2>
         <p className=''>Top Tutors</p>
         <p className='text-sm my-2'>459 Roman Road, London E3 5LX</p>
-        <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowfullscreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe>
+        <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe>
       </div>
       <div className='w-full py-4'>
         <h2 className='w-full font-semibold text-sm mb-2 border-b border-black'>Host</h2>
