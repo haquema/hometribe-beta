@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Notification from "./components/Notification";
+import NotificationsProvider from "./components/NotificationsProvider";
 
 // Components
 import Navbar from "./components/Navbar";
+import Session from "./components/Session";
 
 const inter = Inter({ 
   subsets: ["latin"]
@@ -19,9 +20,11 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className + " relative"}>
+        <Session>
         <Navbar />
         {children}
-        <Notification />
+        <NotificationsProvider />
+        </Session>
       </body>
     </html>
   );

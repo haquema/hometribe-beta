@@ -8,11 +8,7 @@ export default function LogoutButton({ classNames, text}) {
   const router = useRouter();
   
   const logout = () => {
-    signOut({redirect: false});
-    toast('Successfully logged out');
-    setTimeout(() => {
-      router.refresh();
-    }, 500)
+    signOut({callbackUrl: '/?logout=true'});
   }
 
   return (
