@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <main className='flex flex-col items-start'>
       <Image
-        className='self-center border border-slate-300 rounded-md'
+        className='self-center border border-stone-300 shadow-md shadow-stone-400 rounded-md'
         src={eventPoster}
         width={350}
         height={"auto"}
@@ -43,7 +43,7 @@ export default async function Home() {
       </div>
       <EnrolButton
         session={session} 
-        classNames={'bg-red-500 py-2 px-6 rounded-md text-white border-2 w-full my-6'} 
+        classNames={'bg-red-500 py-2 px-6 rounded-md text-white border-2 w-full my-6 outline outline-transparent outline-1 hover:bg-red-600'} 
         text='Enrol Now'
       />
       <div className='py-4'>
@@ -54,7 +54,7 @@ export default async function Home() {
         <h2 className='w-full border-b border-black font-semibold text-sm mb-2'>Location</h2>
         <p className=''>Top Tutors</p>
         <p className='text-sm my-2'>459 Roman Road, London E3 5LX</p>
-        <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe>
+        {/* <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe> */}
       </div>
       <div className='w-full py-4'>
         <h2 className='w-full font-semibold text-sm mb-2 border-b border-black'>Host</h2>
