@@ -4,7 +4,7 @@ import ProfileForm from "./form";
 
 export default async function Profile() {
   const session = await getServerSession();
-  console.log(session);
+  console.log("profile session object", session);
 
   const userData = await prisma.user.findUnique({
     where: {
@@ -12,7 +12,7 @@ export default async function Profile() {
     },
   });
 
-  console.log(userData);
+  console.log("profile userData console.log", userData.id);
 
   return (
     <div>

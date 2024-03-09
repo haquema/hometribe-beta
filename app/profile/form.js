@@ -8,6 +8,8 @@ export default function ProfileForm({ userData }) {
     emailAddress: userData.email,
   });
 
+  console.log("profile form.js userData", userData);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
