@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { callToast } from "@/lib/sonner";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 
 export default function Navbar() {
@@ -33,20 +34,22 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="border-none w-dvs -mx-8 -mt-8 mb-8 p-4 flex items-center justify-between shadow-inner">
-      <Link href="/" className="text-black font-semibold text-xl">
-        HomeTribe
-      </Link>
-        {status == 'unauthenticated' && <NavbarLink url="/login" label="Log In" />}
-        {status == 'authenticated' && (
-          <div className="flex space-x-8">
-            <NavbarLink url="/profile" label="My Profile" />
-            <LogoutButton
-              classNames={"font-medium text-stone-600 border-transparent bg-stone-300 rounded-full p-1 px-3 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400 hover:text-white text-sm"}
-              text="Logout"
-            />
-          </div>
-        )}
-    </nav>
+    <Suspense>
+      <nav className="border-none w-dvs -mx-8 -mt-8 mb-8 p-4 flex items-center justify-between shadow-inner">
+        <Link href="/" className="text-black font-semibold text-xl">
+          HomeTribe
+        </Link>
+          {status == 'unauthenticated' && <NavbarLink url="/login" label="Log In" />}
+          {status == 'authenticated' && (
+            <div className="flex space-x-8">
+              <NavbarLink url="/profile" label="My Profile" />
+              <LogoutButton
+                classNames={"font-medium text-stone-600 border-transparent bg-stone-300 rounded-full p-1 px-3 ml-2 flex flex-row space-x-2 hover:shadow-xl hover:bg-stone-400 hover:text-white text-sm"}
+                text="Logout"
+              />
+            </div>
+          )}
+      </nav>
+    </Suspense>
   );
 }
