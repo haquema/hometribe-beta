@@ -14,6 +14,10 @@ export default function Navbar() {
   useEffect(() => {
     if(searchParams.get('logout') == 'true') {
       callToast('default', 'Logged out successfully!');
+    } else if (searchParams.get('payment') == 'success') {
+      callToast('success', "Payment was successful. Your space is confirmed")
+    } else if (searchParams.get('payment') == 'cancel') {
+      callToast('info', "Payment was cancelled. Please try again")
     }
   })
 
