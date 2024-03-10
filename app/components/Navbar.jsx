@@ -1,11 +1,13 @@
 'use client'
 import Link from "next/link";
+import Image from "next/image";
 import LogoutButton from "./LogoutButton";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { callToast } from "@/lib/sonner";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import Logo from '../../public/logo.png';
+
 
 
 const NavbarLink = ({ url, label }) => {
@@ -25,10 +27,13 @@ const Notifications = () => {
   useEffect(() => {
     if(searchParams.get('logout') == 'true') {
       callToast('default', 'Logged out successfully!');
+      console.log('useEffect ran');
     } else if (searchParams.get('payment') == 'success') {
       callToast('success', "Payment was successful. Your space is confirmed")
+      console.log('useEffect ran');
     } else if (searchParams.get('payment') == 'cancel') {
       callToast('info', "Payment was cancelled. Please try again")
+      console.log('useEffect ran');
     }
   })
 
@@ -43,7 +48,7 @@ export default function Navbar() {
   return (
     <nav className="border-none w-dvs -mx-8 -mt-8 mb-8 p-4 flex items-center justify-between shadow-inner">
       <Link href="/" className="text-black font-semibold text-xl">
-        HomeTribe
+        <Image src={Logo} alt='Logo' width={150} />
       </Link>
       <Suspense>
         <Notifications />
