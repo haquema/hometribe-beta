@@ -28,11 +28,12 @@ export const options = {
       },
       async authorize(credentials, req) {
         try {
-          const userExists = await prisma.user.findFirst({
+          const userExists = await prisma.users.findUnique({
             where: {
               email: credentials.email,
             },
           })
+          // console.log('this is after the try block calling prisma read query to find user', userExists);
 
           if (userExists) {
             // console.log("User Exists")

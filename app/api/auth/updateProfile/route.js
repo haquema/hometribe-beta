@@ -5,7 +5,7 @@ export async function POST(request) {
   try {
     const { firstName, lastName, email } = await request.json();
 
-    const updatedUser = await prisma.user.update({
+    const updatedUser = await prisma.users.update({
       where: {
         email: email,
       },

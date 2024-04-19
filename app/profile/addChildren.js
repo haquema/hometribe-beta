@@ -1,18 +1,19 @@
 "use client";
 import { useState } from "react";
 
-export default function ProfileForm({ userData }) {
-  const [profile, setProfile] = useState({
-    firstName: userData.firstName,
-    lastName: userData.lastName,
-    emailAddress: userData.email,
+export default function AddChildrenForm({ parentId }) {
+  const [child, setChild] = useState({
+    firstName: '',
+    lastName: '',
+    gender: '',
+    age: null,
   });
 
-  console.log("profile form.js userData", userData);
+  // console.log("profile form.js userData", parentId);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
+    setChild({ ...child, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -22,19 +23,22 @@ export default function ProfileForm({ userData }) {
     let inputs = {
       firstName: formData.get("firstName"),
       lastName: formData.get("lastName"),
-      email: formData.get("email"),
+      gender: formData.get("gender"),
+      age: formData.get("age"),
+      parentId: parentId,
     };
+    console.log('this is the inputs being sent to api', inputs);
 
-    const response = await fetch(`/api/auth/updateProfile`, {
+    const response = await fetch(`/api/addChild`, {
       method: "POST",
       body: JSON.stringify(inputs),
     });
 
-    if (response.ok) {
-      console.log("Profile updated successfully");
+    if (response.message == 'success') {
+      console.log("Child added successfully");
       // Optionally, handle any actions post-update (e.g., display a success message)
     } else {
-      console.error("Failed to update profile");
+      console.error("Failed to add child");
       // Optionally, handle any actions on failure (e.g., display an error message)
     }
   };
@@ -46,7 +50,7 @@ export default function ProfileForm({ userData }) {
         className="max-w-md m-auto bg-white shadow-lg rounded-lg p-6 space-y-4 border border-orange-200"
       >
         <h1 className="text-2xl font-bold text-orange-600 mb-4">
-          Profile Page
+          Add children
         </h1>
 
         <div>
@@ -54,7 +58,7 @@ export default function ProfileForm({ userData }) {
           <input
             type="text"
             name="firstName"
-            value={profile.firstName}
+            value={child.firstName}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
           />
@@ -65,18 +69,32 @@ export default function ProfileForm({ userData }) {
           <input
             type="text"
             name="lastName"
-            value={profile.lastName}
+            value={child.lastName}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
           />
         </div>
 
         <div>
-          <label className="block text-orange-600">Email Address:</label>
-          <input
+          <label className="block text-orange-600">Gender:</label>
+          <select name="gender" id="gender" type="text">
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>
+          </select>
+          {/* <input
             type="text"
-            name="email"
-            value={profile.emailAddress}
+            name="gender"
+            value={child.gender}
+            onChange={handleChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
+          /> */}
+        </div>
+        <div>
+          <label className="block text-orange-600">Age:</label>
+          <input
+            type="number"
+            name="age"
+            value={child.age}
             onChange={handleChange}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
           />
@@ -91,4 +109,4 @@ export default function ProfileForm({ userData }) {
       </form>
     </div>
   );
-}
+} 

@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <main className='relative flex flex-col items-start'>
       <Image
-        className='self-center border border-stone-300 shadow shadow-stone-300 rounded-md'
+        className='self-center border border-stone-400 shadow shadow-stone-200 rounded-md'
         src={eventPoster}
         width={350}
         height={"auto"}

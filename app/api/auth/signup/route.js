@@ -6,7 +6,7 @@ export async function POST(request) {
   try {
     const { firstName, lastName, email, password } = await request.json();
     
-    const emailTaken = await prisma.user.findUnique({
+    const emailTaken = await prisma.users.findUnique({
       where: {
         email: email,
       },
@@ -16,7 +16,7 @@ export async function POST(request) {
     if (emailTaken) {
       return NextResponse.json({ message: "email taken"});
     } else {
-      const newUser = await prisma.user.create({
+      const newUser = await prisma.users.create({
         data: {
           firstName: firstName,
           lastName: lastName,
