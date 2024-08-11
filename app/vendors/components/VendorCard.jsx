@@ -6,9 +6,9 @@ const VendorCard = (props) => {
   return (
     <Link href={`/vendors/${props.id}`}>
       <div className="flex flex-col">
-        <div className="border border-white h-80 w-80 rounded-lg relative">
+        <div className="border-2 border-black h-80 w-80 rounded-3xl relative">
           <Image
-            className={"rounded-lg object-contain" + ` bg-${props.bgColor}`}
+            className={"rounded-lg object-contain rounded-3xl" + ` bg-${props.bgColor}`}
             src={props.photo}
             alt="Picture of the vendor"
             fill
