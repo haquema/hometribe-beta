@@ -1,7 +1,7 @@
 import Image from "next/image";
 import StockPhoto from "../../../../public/profile-stock-2.jpg"
 
-const ImageCarousel = ({classNames}) => {
+const PhotoSlider = ({classNames}) => {
   return (
     <div className={classNames + " flex space-x-1 justify-between"}>
       <Image className="rounded-lg" src={StockPhoto} alt={"test"} width={180} />
@@ -11,4 +11,4 @@ const ImageCarousel = ({classNames}) => {
   )
 }
 
-export default ImageCarousel;
+export default PhotoSlider;

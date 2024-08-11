@@ -2,10 +2,12 @@
 import AboutCard from "./components/AboutCard";
 import ProfileCard from "./components/ProfileCard";
 import EventCard from "./components/EventCard";
-import ImageCarousel from "./components/ImageCarousel";
+import PhotoSlider from "./components/PhotoSlider";
 import poster from "../../../public/profile-stock-1.jpg";
 
 const eventInfo = {
+  vendorId: 1,
+  eventId: 1,
   name: 'Infant\'s Play',
   image: poster,
   description: 'The cornerstone of transformative beginning to homeschooling for boys and girls aged 4-6. Through theme based learning, we intertwine academic subjects with islamic studies, providing a comprehensive foundation for young learners. Each session is filled with exploration, discovery, and hands on experiences. Suhba infants provides more than just education we nurture intellectual growth, emotional, social, and spiritual well being',
@@ -24,7 +26,7 @@ const Page = () => {
           <ProfileCard classNames="border border-stone-200 shadow-lg shadow-stone-300 rounded-2xl w-100 h-80 md:w-112 md:h-74 lg:w-96 lg:h-60"/>
           <div className="flex flex-col items-center lg:items-left space-y-4 w-112 flex-wrap">
             <AboutCard classNames="rounded-lg max-h-60 w-112 space-y-2"/>
-            <ImageCarousel classNames="w-96" />
+            <PhotoSlider classNames="w-96" />
           </div>
         </div>
         <div className="flex flex-col my-10 w-112 items-center">
