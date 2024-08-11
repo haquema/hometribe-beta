@@ -1,3 +1,4 @@
+import { NextUIProvider } from "@nextui-org/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NotificationsProvider from "./components/NotificationsProvider";
@@ -19,12 +20,14 @@ export default async function RootLayout({ children }) {
   
   return (
     <html lang="en">
-      <body className={inter.className + " relative"}>
-        <Session>
-        <Navbar />
-        {children}
-        <NotificationsProvider />
-        </Session>
+      <body className={inter.className + " w-lvw h-lvh relative"}>
+        <NextUIProvider>
+          <Session>
+            <Navbar />
+            {children}
+            <NotificationsProvider />
+          </Session>
+        </NextUIProvider>
       </body>
     </html>
   );

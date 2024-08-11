@@ -24,8 +24,8 @@ export default async function Profile() {
 
   return (
     <div className="bg-transparent">
-      {/* <ProfileForm userData={userData} /> */}
-      <AddChildrenForm parentId={userData.id} />
+      <ProfileForm userData={userData} />
+      {/* <AddChildrenForm parentId={userData.id} /> */}
     </div>
   );
 }

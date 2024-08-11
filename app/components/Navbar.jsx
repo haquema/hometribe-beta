@@ -46,7 +46,7 @@ export default function Navbar() {
   const {status} = useSession();
 
   return (
-    <nav className="border-none w-dvs -mx-8 -mt-8 mb-8 p-4 flex items-center justify-between shadow-inner">
+    <nav className="border-none w-dvs py-8 flex items-center justify-between">
       <Link href="/" className="text-black font-semibold text-xl">
         <Image src={Logo} alt='Logo' width={150} />
       </Link>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply p-8 bg-stone-100;
+  @apply px-10 bg-stone-100;
 }
 
 /* h1, h2 {
