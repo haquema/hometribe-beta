@@ -1,7 +1,7 @@
 const AboutCard = ({classNames}) => {
   return (
-    <div className={classNames +" p-2 flex flex-col"}>
-      <p className="text-2xl font-semibold self-center">About Suhba Club</p>
+    <div className={classNames +" p-2 flex flex-col items-left"}>
+      <p className="text-lg font-semibold">About</p>
       <p className="text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum alias tenetur quae voluptates consequatur autem modi quos tempora fuga eius quod tempore a, consequuntur, asperiores culpa iusto soluta ab placeat!</p>
     </div>
   )
