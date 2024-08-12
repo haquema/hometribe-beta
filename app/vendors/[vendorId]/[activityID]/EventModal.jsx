@@ -2,6 +2,7 @@
 import Image from "next/image";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import { CalendarDaysIcon, ClockIcon, CurrencyPoundIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 // const eventInfo = {
 //   name: 'Infant\'s Play',
@@ -15,6 +16,7 @@ import { CalendarDaysIcon, ClockIcon, CurrencyPoundIcon } from "@heroicons/react
 // }
 
 export default function EventModal({eventInfo}) {
+  const router = useRouter();
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
@@ -58,10 +60,13 @@ export default function EventModal({eventInfo}) {
                   {/* <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe> */}
                 </div>
               </ModalBody>
-              <ModalFooter>
+              <ModalFooter className="flex justify-between w-full">
                 {/* <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button> */}
+                <Button className="bg-stone-500 text-white" onPress={() => {router.push(`/vendors/${eventInfo.vendorId}/${eventInfo.eventId}`)}}>
+                  Event Page
+                </Button>
                 <Button className="bg-red-500 text-white" onPress={onClose}>
                   Register
                 </Button>

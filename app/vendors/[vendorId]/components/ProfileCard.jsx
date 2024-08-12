@@ -7,7 +7,7 @@ const ProfileCard = ({classNames}) => {
   return (
     <div className={classNames + " flex px-4"}>
       <div className="flex flex-col grow items-center justify-center space-y-6">
-        <Image src={ProfilePic} alt="logo of company" className="border-2 border-black rounded-full size-36 lg:size-32 md:size-36 object-contain"/>
+        <Image src={ProfilePic} alt="logo of company" className="border-2 border-black rounded-full size-40 lg:size-32 md:size-36 object-contain"/>
         <div className="flex space-x-2 items-center">
           <p className="font-bold text-3xl md:text-3xl">Suhba Club</p>
           <ShieldCheckIcon className="size-7  fill-red-500 text-white" />

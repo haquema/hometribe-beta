@@ -1,6 +1,6 @@
 import Image from "next/image";
 import testImage from "../../../../public/profile-stock-1.jpg"
-import EventModal from "@/app/item/EventModal";
+import EventModal from "@/app/vendors/[vendorId]/[activityId]/EventModal";
 
 const EventCard = ({classNames, eventInfo}) => {
   return (
