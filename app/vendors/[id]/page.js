@@ -3,7 +3,6 @@ import AboutCard from "./components/AboutCard";
 import ProfileCard from "./components/ProfileCard";
 import EventCard from "./components/EventCard";
 import ImageCarousel from "./components/ImageCarousel";
-import VerificationCard from "./components/VerificationCard";
 import poster from "../../../public/profile-stock-1.jpg";
 
 const eventInfo = {
@@ -21,10 +20,9 @@ const Page = () => {
   return (
     <div className="w-dvw absolute left-0 flex justify-center">
       <div className="flex flex-col">
-        <div className="flex flex-col space-y-4 lg:flex-row lg:px-6  lg:space-x-4">
-          <ProfileCard classNames="border border-stone-200 shadow-lg shadow-stone-300 rounded-2xl w-112 h-80 md:w-112 md:h-74 lg:w-96 lg:h-60"/>
+        <div className="flex flex-col space-y-4 lg:flex-row lg:px-6  lg:space-x-4 items-center">
+          <ProfileCard classNames="border border-stone-200 shadow-lg shadow-stone-300 rounded-2xl w-100 h-80 md:w-112 md:h-74 lg:w-96 lg:h-60"/>
           <div className="flex flex-col items-center lg:items-left space-y-4 w-112 flex-wrap">
-            <VerificationCard classNames="border border-stone-200 shadow-lg shadow-stone-300"/>
             <AboutCard classNames="rounded-lg max-h-60 w-112 space-y-2"/>
             <ImageCarousel classNames="w-96" />
           </div>
