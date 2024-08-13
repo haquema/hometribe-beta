@@ -10,8 +10,8 @@ const ProfileCard = ({classNames}) => {
   return (
     <div className={classNames + " flex "}>
       <div className="flex flex-row grow items-center justify-left space-x-4">
-        <Image src={ProfilePic} alt="logo of company" className="border-2 border-white rounded-full size-48 lg:size-32 md:size-36 object-cover"/>
-        <div className="flex flex-col space-y-4">
+        <Image src={ProfilePic} alt="logo of company" className="border-2 border-white rounded-xl size-48 lg:size-32 md:size-36 object-cover grow-0"/>
+        <div className="flex flex-col space-y-4 grow">
           <div className="flex space-x-2 items-center">
             <p className="font-bold text-3xl md:text-3xl">Suhba Club</p>
             <ShieldCheckIcon className="size-7  fill-red-500 text-white" />
