@@ -63,7 +63,7 @@ export default function RegistrationForm({classNames}) {
 
 
   return (
-    <div className={classNames + " "}>
+    <div className={classNames + " w-full "}>
       <Button className="w-full bg-red-600" onPress={onOpen} color="danger">Register</Button>
       <Modal 
         scrollBehavior="inside"

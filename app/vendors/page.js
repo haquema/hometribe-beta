@@ -1,5 +1,5 @@
 import VendorCard from "./components/VendorCard";
-import SuhbaClubPhoto from "../../public/suhbadp.png";
+import SuhbaClubPhoto from "../../public/suhba-logo.png";
 import MYNLogo from "../../public/mynlogo.png";
 
 const Page = () => {
