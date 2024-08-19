@@ -2,7 +2,7 @@ const AboutCard = ({classNames}) => {
   return (
     <div className={classNames +" p-2 flex flex-col items-left"}>
       <p className="text-lg font-semibold">About</p>
-      <p className="text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum alias tenetur quae voluptates consequatur autem modi quos tempora fuga eius quod tempore a, consequuntur, asperiores culpa iusto soluta ab placeat!</p>
+      <p className="text-sm ">As a muslim homeschool co-op based in London, Suhba Club offers a curated homeschooling schedule & curriculum through programmes and activities led by male and female teachers and mentors for infants, primary, and secondary age groups. Through personalised guidance, resources and a supportive community, Suhba Club facilitates a balanced and enriching homeschooling experience for every family.</p>
     </div>
   )
 }

@@ -3,9 +3,9 @@ import AboutCard from "./components/AboutCard";
 import ProfileCard from "./components/ProfileCard";
 import EventCard from "./components/EventCard";
 import PhotoSlider from "./components/PhotoSlider";
-import poster1 from "../../../public/profile-stock-1.jpg";
-import poster2 from "../../../public/profile-stock-2.jpg";
-import poster3 from "../../../public/profile-stock-3.jpg";
+import poster1 from "../../../public/infantsdp.png";
+import poster2 from "../../../public/juniorsdp.png";
+import poster3 from "../../../public/linkdp.png";
 
 const Page = () => {
   return (
@@ -15,11 +15,12 @@ const Page = () => {
           <ProfileCard classNames=" rounded-2xl w-112 h-fit"/>
           <div className="flex flex-col items-center lg:items-left space-y-4 w-112 flex-wrap">
             <AboutCard classNames="rounded-lg max-h-60 w-112 space-y-2"/>
-            <PhotoSlider classNames="w-96" />
+            <PhotoSlider classNames="" />
           </div>
         </div>
         <div className="flex flex-col my-10 w-112 items-left">
-          <p className="grow text-lg font-semibold font-semibold mb-2">Programmes</p>
+          <p className="grow text-lg font-semibold font-semibold">Programmes</p>
+          <p className="text-xs text-stone-500 mb-2">Click on a programme to find out more and register</p>
           <div className="flex w-full flex-col space-y-1">
             <EventCard eventInfo={eventInfo1} classNames="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
             <EventCard eventInfo={eventInfo2} classNames="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>

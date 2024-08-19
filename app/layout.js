@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
   
   return (
     <html lang="en">
-      <body className={inter.className + " w-lvw h-lvh relative"}>
+      <body className={inter.className + " w-full h-full relative "}>
         <NextUIProvider>
           <Session>
             <Navbar />

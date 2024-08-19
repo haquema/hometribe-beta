@@ -8,6 +8,11 @@ const EventCard = ({classNames, eventInfo}) => {
   const router = useRouter();
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
+  const openDelayed = () => {
+    setTimeout(onOpen, 500)
+    setTimeout(() => {console.log('this is a test')}, 1000);
+  }
+
   return (
     // button component will wrap around the eventcard element so that modal can be activated
     <button className="" onClick={onOpen}>
@@ -16,8 +21,8 @@ const EventCard = ({classNames, eventInfo}) => {
         <Image className="rounded-lg size-24 object-cover transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110" src={eventInfo.image} alt="image of the activity"/>
         <div className="flex flex-col justify-evenly items-start px-4 h-full py-1">
           <p className="font-medium">{eventInfo.name}</p>
-          <p className=" text-sm line-clamp-2 text-left">{eventInfo.description}</p>
-          <p className="text-sm text-stone-400">{eventInfo.day}, {eventInfo.time} • {eventInfo.location}</p>
+          <p className=" text-xs line-clamp-2 text-left">{eventInfo.description}</p>
+          <p className="text-xs text-stone-400">{eventInfo.day}, {eventInfo.time} • {eventInfo.location}</p>
         </div>
       </div>
       {/* this is the modal that will be displayed upon clicking */}
@@ -28,7 +33,7 @@ const EventCard = ({classNames, eventInfo}) => {
               <ModalHeader className="flex flex-col gap-1 items-center text-2xl">{eventInfo.name}</ModalHeader>
               <ModalBody className="flex flex-col items-center gap-1">
                 <Image
-                  className='self-center border border-stone-400 shadow shadow-stone-200 rounded-md'
+                  className='w-full self-center shadow shadow-stone-200 rounded-md'
                   src={eventInfo.image}
                   width={350}
                   height={"auto"}
@@ -66,7 +71,7 @@ const EventCard = ({classNames, eventInfo}) => {
                 <Button className="bg-stone-500 text-white" onPress={() => {router.push(`/vendors/${eventInfo.vendorId}/${eventInfo.eventId}`)}}>
                   Event Page
                 </Button>
-                <Button className="bg-red-500 text-white" onPress={onClose}>
+                <Button className="bg-red-500 text-white" onPress={() => {onClose(); openDelayed();}}>
                   Register
                 </Button>
               </ModalFooter>

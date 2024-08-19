@@ -53,7 +53,7 @@ export default function Navbar() {
       <Suspense>
         <Notifications />
       </Suspense>
-      {status == 'unauthenticated' && <NavbarLink url="/login" label="Log In" />}
+      {/* {status == 'unauthenticated' && <NavbarLink url="/login" label="Log In" />} */}
       {status == 'authenticated' && (
         <div className="flex space-x-8">
           <NavbarLink url="/profile" label="My Profile" />
