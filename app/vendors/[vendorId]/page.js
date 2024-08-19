@@ -21,10 +21,10 @@ const Page = () => {
         <div className="flex flex-col my-10 w-112 items-left">
           <p className="grow text-lg font-semibold font-semibold">Programmes</p>
           <p className="text-xs text-stone-500 mb-2">Click on a programme to find out more and register</p>
-          <div className="flex w-full flex-col space-y-1">
-            <EventCard eventInfo={eventInfo1} classNames="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
-            <EventCard eventInfo={eventInfo2} classNames="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
-            <EventCard eventInfo={eventInfo3} classNames="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
+          <div className="flex w-full flex-col space-y-2">
+            <EventCard eventInfo={eventInfo1} classNames="border border-stone-500 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
+            <EventCard eventInfo={eventInfo2} classNames="border border-stone-500 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
+            <EventCard eventInfo={eventInfo3} classNames="border border-stone-500 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
           </div>
         </div>
       </div>
