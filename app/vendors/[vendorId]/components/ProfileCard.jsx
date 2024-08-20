@@ -9,28 +9,28 @@ import whatsapp from "../../../../public/icons/whatsapp.png"
 const ProfileCard = ({classNames}) => {
   return (
     <div className={classNames + " flex "}>
-      <div className="flex flex-row grow items-center justify-left space-x-4">
-        <Image src={ProfilePic} alt="logo of company" className="border shadow-md hover:shadow-xl bg-black rounded-xl size-48 lg:size-32 md:size-36 object-contain  grow-0"/>
-        <div className="flex flex-col space-y-4 grow">
+      <div className="flex flex-row grow items-center justify-start space-x-6">
+        <Image src={ProfilePic} alt="logo of company" className="border shadow-md hover:shadow-xl bg-black rounded-xl size-32 object-contain  grow-0"/>
+        <div className="flex flex-col space-y-2 grow">
           <div className="flex space-x-2 items-center">
-            <p className="font-bold text-3xl md:text-3xl">Suhba Club</p>
-            <ShieldCheckIcon className="size-7  fill-red-500 text-white" />
+            <p className="font-bold text-2xl">Suhba Club</p>
+            <ShieldCheckIcon className="size-6  fill-red-500 text-white" />
           </div>
           <div className="flex flex-col space-y-1">
             <div className="flex flex px-1 space-x-3 items-center">
-              <DocumentCheckIcon className="size-5 text-red-500"/>
-              <p className="font-normal text-sm ">DBS certified</p>
+              <DocumentCheckIcon className="size-4 text-red-500"/>
+              <p className="font-normal text-xs ">DBS certified</p>
             </div>
             <div className="flex flex px-1 space-x-3 items-center">
-              <PlusCircleIcon className="size-5 text-red-500"/>
-              <p className="font-normal text-sm w-max">First Aid Trained</p>
+              <PlusCircleIcon className="size-4 text-red-500"/>
+              <p className="font-normal text-xs w-max">First Aid Trained</p>
             </div>
             <div className="flex flex px-1 space-x-3 items-center">
-              <IdentificationIcon className="size-5 text-red-500"/>
-              <p className="font-normal text-sm ">ID verified</p>
+              <IdentificationIcon className="size-4 text-red-500"/>
+              <p className="font-normal text-xs ">ID verified</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4 pl-1 pt-1">
+          <div className="flex items-center space-x-6 pl-1 pt-1">
             <Link href={'https://suhbaclub.com/'}>
               <GlobeAltIcon className="size-5 cursor-pointer" />
             </Link>

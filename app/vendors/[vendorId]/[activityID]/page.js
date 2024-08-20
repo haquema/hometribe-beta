@@ -1,8 +1,7 @@
 import Image from "next/image"
 import poster from "../../../../public/infantsdp.png";
-import { CalendarDaysIcon, ClockIcon, CurrencyPoundIcon } from "@heroicons/react/24/outline"
-import { Button } from "@nextui-org/react";
-import RegistrationForm from "./components/EventRegistrationForm";
+import { CalendarDaysIcon, BanknotesIcon } from "@heroicons/react/24/outline"
+import RegistrationModal from "./components/RegistrationModal";
 import Link from "next/link";
 
 export default function EventPage() {
@@ -20,45 +19,45 @@ export default function EventPage() {
   }
 
   return (
-    <div className="max-w-112 flex justify-center">
+    <div className="w-full px-4 justify-center">
       <div className="flex flex-col w-full items-center gap-4">
-        <h1 className="text-3xl font-bold m-4">{eventInfo.name}</h1>
         <Image
-          className='self-center shadow shadow-md rounded-md w-full'
+          className='self-center shadow border-stone-100 border shadow-md hover:shadow-lg rounded-xl w-2/3'
           src={eventInfo.image}
-          width={350}
+          width={200}
           height={"auto"}
           alt="Poster of the event"
           priority={true}
         />
-        <div className="flex justify-evenly items-center my-2 space-x-4">
-          <div className="flex items-center space-x-1">
-            <CalendarDaysIcon className="size-5" />
-            <p className="text-sm font-bold">{eventInfo.day}</p>
+        <div className=" w-full flex justify-evenly items-center my-2">
+          <div className="flex items-center space-x-2">
+            <CalendarDaysIcon className="size-11" />
+            <div className="flex flex-col">
+              <p className="text-base font-semibold">{eventInfo.day}s</p>
+              <p className="text-sm">{eventInfo.time}</p>
+            </div>
           </div>
-          <div className="flex items-center space-x-1">
-            <ClockIcon className="size-5" />
-            <p className="text-sm font-bold">{eventInfo.time}</p>
-          </div>
-          <div className="flex items-center space-x-1">
-            <CurrencyPoundIcon className="size-5" />
+          <div className="flex items-center space-x-2">
+            <BanknotesIcon className="size-11" />
             <p className="text-sm font-bold">{eventInfo.price}/session</p>
           </div>
         </div>
-        <div className=''>
-          <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Description</h2>
-          <p className="text-sm">{eventInfo.description}</p>
+        <div className="px-2 flex flex-col w-full items-start gap-4">
+          <div className='flex flex-col w-full'>
+            <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Description</h2>
+            <p className="text-sm">{eventInfo.description}</p>
+          </div>
+          <div className='flex flex-col w-full'>
+            <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Location</h2>
+            {/* <p className="text-sm">{eventInfo.location}</p> */}
+            <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe>
+          </div>
+          <div className='flex flex-col w-full'>
+            <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Hosted By</h2>
+            <Link href='/vendors/1'><p className="text-sm">Suhba Club</p></Link>
+          </div>
+          <RegistrationModal classNames=""/>
         </div>
-        <div className='w-full'>
-          <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Location</h2>
-          {/* <p className="text-sm">{eventInfo.location}</p> */}
-          <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe>
-        </div>
-        <div className='w-full'>
-          <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Hosted By</h2>
-          <Link href='/vendors/1'><p className="text-sm">Suhba Club</p></Link>
-        </div>
-        <RegistrationForm classNames=""/>        
       </div>
     </div>
   )

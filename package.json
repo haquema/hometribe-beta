@@ -16,6 +16,7 @@
     "@nextui-org/react": "^2.4.6",
     "@prisma/client": "^5.9.1",
     "bcrypt": "^5.1.1",
+    "bootstrap-icons": "^1.11.3",
     "firebase": "^10.11.0",
     "framer-motion": "^11.3.24",
     "next": "14.1.0",

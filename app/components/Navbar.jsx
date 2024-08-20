@@ -46,9 +46,9 @@ export default function Navbar() {
   const {status} = useSession();
 
   return (
-    <nav className="border-none w-dvs py-8 flex items-center justify-between">
-      <Link href="/" className="text-black font-semibold text-xl">
-        <Image src={Logo} alt='Logo' width={150} />
+    <nav className="border-none w-full px-6 py-8 flex items-center justify-between">
+      <Link href="/">
+        <Image className="" src={Logo} alt='Logo' width={150} />
       </Link>
       <Suspense>
         <Notifications />

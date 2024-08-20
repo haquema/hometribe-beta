@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply px-10 pb-20;
+  @apply pb-6;
 }
 
 /* h1, h2 {
