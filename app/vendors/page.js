@@ -4,9 +4,9 @@ import MYNLogo from "../../public/mynlogo.png";
 
 const Page = () => {
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-black font-semibold text-2xl mb-4 text-center max-w-[500px]">Click on a vendor to find out more about them and see a list of activities</h1>
-      <div className="flex flex-col max-md:space-y-10 md:flex-row md:space-x-10 mt-10">
+    <div className="flex flex-col items-center w-full px-4">
+      <h1 className="text-black font-semibold text-xl mb-4 text-center max-w-[500px]">Click on a vendor to find out more about them and see a list of activities</h1>
+      <div className="flex flex-wrap gap-10 pt-10">
         <VendorCard
           photo={SuhbaClubPhoto}
           bgColor="white"
