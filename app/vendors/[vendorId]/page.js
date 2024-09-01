@@ -24,11 +24,9 @@ const Page = () => {
           <p className="grow text-lg font-semibold font-semibold">Programmes</p>
           <p className="text-xs text-stone-500 mb-2">Click on a programme to find out more and register</p>
           <div className="flex w-full flex-col space-y-2">
-            <EventCard eventInfo={eventInfo1} classNames=" hover:bg-stone-100 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
-            <Divider />
-            <EventCard eventInfo={eventInfo2} classNames=" hover:bg-stone-100 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
-            <Divider />
-            <EventCard eventInfo={eventInfo3} classNames=" hover:bg-stone-100 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105"/>
+            <EventCard eventInfo={eventInfo1} classNames=" hover:border-stone-400 rounded-lg"/>
+            <EventCard eventInfo={eventInfo2} classNames=" hover:border-stone-400 rounded-lg"/> 
+            <EventCard eventInfo={eventInfo3} classNames=" hover:border-stone-400 rounded-lg"/>
           </div>
         </div>
       </div>

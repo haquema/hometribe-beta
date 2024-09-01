@@ -17,7 +17,7 @@ const EventCard = ({classNames, eventInfo}) => {
     // button component will wrap around the eventcard element so that modal can be activated
     <button className=" " onClick={onOpen}>
       {/* this is what will be rendered initially */}
-      <div className={classNames + " flex flex-row h-28 items-center cursor-pointer"}>
+      <div className={classNames + " border border-stone-200 flex flex-row h-28 items-center cursor-pointer"}>
         <Image className="rounded-lg size-24 object-cover" src={eventInfo.image} alt="image of the activity"/>
         <div className="flex flex-col justify-center items-start px-4 h-full py-1 space-y-1 ">
           <p className="font-medium">{eventInfo.name}</p>
@@ -26,7 +26,7 @@ const EventCard = ({classNames, eventInfo}) => {
         </div>
       </div>
       {/* this is the modal that will be displayed upon clicking */}
-      <Modal size={'sm'} isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
+      <Modal size={'sm'} isOpen={isOpen} onOpenChange={onOpenChange} placement="right">
         <ModalContent className="flex flex-col">
           {(onClose) => (
             <>
