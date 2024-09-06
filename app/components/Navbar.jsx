@@ -46,9 +46,9 @@ export default function Navbar() {
   const {status} = useSession();
 
   return (
-    <nav className="border-none w-full px-6 py-8 flex items-center justify-between">
+    <nav className=" w-full p-4 sticky top-0 backdrop-blur-sm bg-white flex items-center justify-between">
       <Link href="/">
-        <Image className="" src={Logo} alt='Logo' width={150} />
+        <Image className="w-32" src={Logo} alt='Logo' width={150} />
       </Link>
       <Suspense>
         <Notifications />

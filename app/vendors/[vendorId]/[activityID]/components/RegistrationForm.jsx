@@ -2,7 +2,7 @@
 import { Input, Button } from "@nextui-org/react"
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
-import ChildFormComponent from "./components/ChildForm";
+import ChildFormComponent from "./ChildForm";
 
 export default function RegistrationForm() {
   const [formPage, setFormPage] = useState(0);

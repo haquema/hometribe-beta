@@ -26,12 +26,11 @@ const EventCard = ({classNames, eventInfo}) => {
         </div>
       </div>
       {/* this is the modal that will be displayed upon clicking */}
-      <Modal size={'sm'} isOpen={isOpen} onOpenChange={onOpenChange} placement="right">
+      <Modal size={'full'} isOpen={isOpen} onOpenChange={onOpenChange} placement="right">
         <ModalContent className="flex flex-col">
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 items-center text-2xl"></ModalHeader>
-              <ModalBody className="flex flex-col items-center gap-1">
+              <ModalBody className="flex flex-col items-center pt-12 gap-1 bg-slate-100">
                 <div className="flex flex-col w-full items-center gap-4">
                   <Image
                     className='self-center shadow border-stone-100 border shadow-md hover:shadow-lg rounded-xl w-2/3'
@@ -43,7 +42,7 @@ const EventCard = ({classNames, eventInfo}) => {
                   />
                   <div className=" w-full flex justify-evenly items-center my-2">
                     <div className="flex items-center space-x-2">
-                      <CalendarDaysIcon className="size-11" />
+                      <CalendarDaysIcon className="size-9 text-stone-400 font-medium" />
                       <div className="flex flex-col">
                         <p className="text-base font-semibold">{eventInfo.day}s</p>
                         <p className="text-sm">{eventInfo.time}</p>
@@ -65,19 +64,20 @@ const EventCard = ({classNames, eventInfo}) => {
                       <iframe className='border-2 border-stone-200 rounded-lg w-full' loading="lazy" allowFullScreen src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJDwbWyTwddkgRAoz5yH-rCRk&key=" + process.env.GMAPS_API}></iframe>
                     </div>
                   </div>
+                  <div className="flex justify-between w-full">
+                    {/* <Button color="danger" variant="light" onPress={onClose}>
+                      Close
+                    </Button> */}
+                    <Button className="bg-stone-500 text-white" onPress={() => {router.push(`/vendors/${eventInfo.vendorId}/${eventInfo.eventId}`)}}>
+                      Event Page
+                    </Button>
+                    <Button className="bg-red-500 text-white" onPress={() => {onClose(); openDelayed();}}>
+                      Register
+                    </Button>
+                  </div>
                 </div>
               </ModalBody>
-              <ModalFooter className="flex justify-between w-full">
-                {/* <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button> */}
-                <Button className="bg-stone-500 text-white" onPress={() => {router.push(`/vendors/${eventInfo.vendorId}/${eventInfo.eventId}`)}}>
-                  Event Page
-                </Button>
-                <Button className="bg-red-500 text-white" onPress={() => {onClose(); openDelayed();}}>
-                  Register
-                </Button>
-              </ModalFooter>
+              
             </>
           )}
         </ModalContent>

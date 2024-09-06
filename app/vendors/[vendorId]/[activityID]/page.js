@@ -1,51 +1,60 @@
 import Image from "next/image"
-import poster from "../../../../public/infantsdp.png";
-import { CalendarDaysIcon, BanknotesIcon } from "@heroicons/react/24/outline"
+import poster from "../../../../public/stock_photos/photo1.png";
+import { CalendarIcon, BanknotesIcon } from "@heroicons/react/24/outline"
 import RegistrationModal from "./components/RegistrationModal";
 import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
 
-export default function EventPage() {
-  const eventInfo = {
-    vendorId: 1,
-    eventId: 1,
-    name: 'Infant\'s Play',
-    image: poster,
-    description: 'The cornerstone of transformative beginning to homeschooling for boys and girls aged 4-6. Through theme based learning, we intertwine academic subjects with islamic studies, providing a comprehensive foundation for young learners. Each session is filled with exploration, discovery, and hands on experiences. Suhba infants provides more than just education we nurture intellectual growth, emotional, social, and spiritual well being',
-    ages: '4-6',
-    day: 'Tuesday',
-    time: '12.45pm - 2.45pm',
-    location: 'Tower Hamlets',
-    price: '£10'
-  }
+export default async function EventPage() {
+  const supabase = createClient();
+  const { data, error } = await supabase.from("events").select('*').eq('id', 1);
+  
+  if (error) {
+    console.error(error)
+
+    return
+  };
+  
+  const [vendorEvent] = data;
+  // console.log(vendorEvent);
 
   return (
     <div className="w-full px-4 justify-center">
-      <div className="flex flex-col w-full items-center gap-4">
+      <div className="flex flex-col w-full items-center gap-2">
         <Image
-          className='self-center shadow border-stone-100 border shadow-md hover:shadow-lg rounded-xl w-2/3'
-          src={eventInfo.image}
+          className=' my-2 self-center w-full shadow border-stone-100 border shadow-md hover:shadow-lg rounded-xl w-2/3'
+          src={poster}
           width={200}
           height={"auto"}
           alt="Poster of the event"
           priority={true}
         />
-        <div className=" w-full flex justify-evenly items-center my-2">
+        <h1 className="self-start text-2xl font-semibold pl-2">{vendorEvent.name}</h1>
+        <div className=" w-full flex flex-col justify-evenly items-start my-2 pl-2 gap-1">
           <div className="flex items-center space-x-2">
-            <CalendarDaysIcon className="size-11" />
+            <CalendarIcon className="size-11 text-stone-400" strokeWidth={0.8} />
             <div className="flex flex-col">
-              <p className="text-base font-semibold">{eventInfo.day}s</p>
-              <p className="text-sm">{eventInfo.time}</p>
+              <p className="text-sm font-medium">Tuesdays</p>
+              <p className="text-sm text-stone-500">10am to 2pm</p>
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <BanknotesIcon className="size-11" />
-            <p className="text-sm font-bold">{eventInfo.price}/session</p>
+            <BanknotesIcon className="size-11 text-stone-400" strokeWidth={0.8} />
+            <p className="text-sm font-medium">£10/session</p>
+          </div>
+        </div>
+        <div className="border border-stone-300 w-full rounded-lg flex flex-col">
+          <p className="bg-stone-200 border border-2 border-x-stone-100 border-t-stone-100 rounded-t-lg text-sm py-1 px-2 font-semibold text-stone-600">Registration</p>
+          
+          <div className="w-full p-4">
+            <p className="mb-3 text-stone-600 font-medium">Press the button below to register</p>
+            <RegistrationModal classNames=""/>
           </div>
         </div>
         <div className="px-2 flex flex-col w-full items-start gap-4">
           <div className='flex flex-col w-full'>
             <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Description</h2>
-            <p className="text-sm">{eventInfo.description}</p>
+            <p className="text-sm">{vendorEvent.description}</p>
           </div>
           <div className='flex flex-col w-full'>
             <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Location</h2>
@@ -56,7 +65,6 @@ export default function EventPage() {
             <h2 className='w-full border-b border-black font-semibold text-base mb-2'>Hosted By</h2>
             <Link href='/vendors/1'><p className="text-sm">Suhba Club</p></Link>
           </div>
-          <RegistrationModal classNames=""/>
         </div>
       </div>
     </div>

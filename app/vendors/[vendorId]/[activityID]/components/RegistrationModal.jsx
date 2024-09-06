@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import { Input, DatePicker, Checkbox, Textarea } from "@nextui-org/react";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
-import RegistrationForm from "@/app/test/RegistrationForm";
+import RegistrationForm from "./RegistrationForm";
 
 export default function RegistrationModal({classNames}) {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -11,7 +11,7 @@ export default function RegistrationModal({classNames}) {
 
   return (
     <div className={classNames + " w-full"}>
-      <Button className="w-full bg-red-600" onPress={onOpen} color="danger">Register</Button>
+      <Button className="w-full bg-red-600" radius='sm' onPress={onOpen} color="danger">Register</Button>
       <Modal 
         scrollBehavior="inside"
         placement="bottom"
