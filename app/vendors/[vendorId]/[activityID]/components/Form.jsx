@@ -26,11 +26,11 @@ export default function Form({ onClose }) {
   }
 
   async function submitForm() {
-    console.log(parentDetails);
     const supabase = createClient()
     const { data: data1, error: error1 } = await supabase
       .from('users')
-      .insert({ name: parentDetails.name, email: parentDetails.email, mobile: parentDetails.mobile, role: 'regular' });
+      .insert({ name: parentDetails.name, email: parentDetails.email, mobile: parentDetails.mobile, role: 'regular' })
+      .select();
     
     if (error1) {
       console.error(error1)
@@ -43,7 +43,8 @@ export default function Form({ onClose }) {
         name: child.name,
         dob: child.dob,
         homeschooled: child.homeschooled,
-        health_info: child.healthInfo
+        health_info: child.healthInfo,
+        user_id: data1[0].id
       })
 
       if (error2) {
