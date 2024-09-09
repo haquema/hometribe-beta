@@ -59,7 +59,7 @@ export default function Form({ onClose }) {
     <div className="flex flex-col items-center py-4">
       <form className='flex flex-col items-start w-full p-4' id='form-page-1'>
         <div className="w-full space-y-2 border border-transparent rounded-lg border-stone-300 px-2">
-          <p className="font-bold">Parent's Details</p>
+          <p className="font-bold">Parent&apos;s Details</p>
           <Input isRequired isClearable size="sm" type='text' label='Name' onValueChange={(value) => setParentDetails({...parentDetails, name: value})} className="w-full" />
           <Input isRequired isClearable size="sm" type='email' label='Email' onValueChange={(value) => setParentDetails({...parentDetails, email: value})} className="w-full" />
           <Input isRequired isClearable size="sm" type='tel' label='Mobile' onValueChange={(value) => setParentDetails({...parentDetails, mobile: value})} description="Requested by the vendor" className="w-full" />
@@ -67,7 +67,7 @@ export default function Form({ onClose }) {
       </form>
       <div className="border border-transparent border-stone-300 rounded-lg p-4 px-6">
         <p className="font-bold">Children</p>
-        {noChildren && !visible && <p className="text-sm font-light">You haven't registered a child yet. Press the add child button to do so!</p>}
+        {noChildren && !visible && <p className="text-sm font-light">You haven&apos;t registered a child yet. Press the add child button to do so!</p>}
         {!noChildren && populateCards()}
       </div>
       {visible && <ChildFormComponent buttonProps={{ hideChildForm: hideChildForm, children: children, setChildren: setChildren }} />}

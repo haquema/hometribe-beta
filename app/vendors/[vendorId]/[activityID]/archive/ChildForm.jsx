@@ -27,7 +27,7 @@ export default function ChildFormComponent({ buttonProps }) {
     <form id="childForm" className='w-full space-y-4 px-2' > 
       <div className="border border-stone-300 flex flex-col gap-4 p-4 rounded-lg">
         <div className="flex justify-between items-center">
-          <p className="font-medium">Child's Details</p>
+          <p className="font-medium">Child&apos;s Details</p>
           {/* {removable && <button className='m-0 p-0 bg-transparent' onClick={deleteButton}>
             <TrashIcon className="size-5 hover:text-red-500 cursor-pointer" />
           </button>} */}
