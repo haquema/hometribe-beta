@@ -1,13 +1,11 @@
 'use client'
 import React, { useState } from "react";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
-import { Input, DatePicker, Checkbox, Textarea } from "@nextui-org/react";
-import { ChevronRightIcon } from "@heroicons/react/16/solid";
-import RegistrationForm from "./RegistrationForm";
+import Form from "./Form";
 
 export default function RegistrationModal({classNames}) {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
-  // const [formPage, setFormPage] = useState
+  
 
   return (
     <div className={classNames + " w-full"}>
@@ -32,14 +30,14 @@ export default function RegistrationModal({classNames}) {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1 items-center">
-                Registration Form
+                Registration
               </ModalHeader>
               <ModalBody>
-                <RegistrationForm />
+                <Form onClose={onClose} />
               </ModalBody>
-              <ModalFooter>
+              {/* <ModalFooter>
                 <Button color="foreground" variant="light" onPress={onClose}>Close</Button>
-              </ModalFooter>
+              </ModalFooter> */}
             </>
           )}
         </ModalContent>
