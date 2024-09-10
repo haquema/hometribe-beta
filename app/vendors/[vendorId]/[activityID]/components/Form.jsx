@@ -43,19 +43,20 @@ export default function Form({ onClose }) {
       return
     };
     
-    // Object.keys(forEach(async (child) => {
-    //   const { data: data2, error: error2 } = await supabase.from('children').insert({
-    //     name: child.name,
-    //     dob: child.dob,
-    //     homeschooled: child.homeschooled,
-    //     health_info: child.healthInfo,
-    //     user_id: data1[0].id
-    //   })
+    let keys = Object.keys(children)
+    keys.forEach(async (key) => {
+      const { data: data2, error: error2 } = await supabase.from('children').insert({
+        name: children[key].name,
+        dob: children[key].dob,
+        homeschooled: children[key].homeschooled,
+        health_info: children[key].healthInfo,
+        user_id: data1[0].id
+      })
 
-    //   if (error2) {
-    //     console.error(error2)
-    //   }
-    // });
+      if (error2) {
+        console.error(error2)
+      }
+    });
 
     onClose()
   }
