@@ -9,17 +9,15 @@ export default function ChildFormComponent({ buttonProps }) {
   const [healthInfo, setHealthInfo] = useState('');
 
   function addChild() {
-    let childIndex = buttonProps.children.length + 1
-    buttonProps.setChildren([...buttonProps.children,
-      {
-        index: childIndex,
-        name: name,
-        dob: dob,
-        homeschooled: homeschooled,
-        healthInfo: healthInfo
-      }
-    ])
-    document.getElementById("childForm").reset();
+    let childKey = Object.keys(buttonProps.children).length + 1;
+    let newChildrenObject = {...buttonProps.children};
+    newChildrenObject[childKey] = {
+      name: name,
+      dob: dob,
+      homeschooled: homeschooled,
+      healthInfo: healthInfo
+    }
+    buttonProps.setChildren(newChildrenObject);
     buttonProps.hideChildForm();
   }
 

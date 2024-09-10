@@ -6,7 +6,7 @@ import ChildCard from "./ChildCard";
 
 export default function Form({ onClose }) {
   const [parentDetails, setParentDetails] = useState({})
-  const [children, setChildren] = useState([])
+  const [children, setChildren] = useState({})
   const [visible, setVisible] = useState(false)
 
   const noChildren = children.length === 0;
@@ -16,12 +16,17 @@ export default function Form({ onClose }) {
     setVisible(true);
   }
   function hideChildForm() {
+    document.getElementById("childForm").reset();
     setVisible(false);
   }
 
   function populateCards() {
     let content = [];
-    children.forEach((child) => content.push(<li className="list-none" key={child.index}><ChildCard child={child} /></li>));
+    let keys = Object.keys(children)
+    keys.forEach((key) => {
+      content.push(<li className="list-none" key={key}><ChildCard child={children[key]} /></li>)
+    });
+
     return content;
   }
 
@@ -38,19 +43,19 @@ export default function Form({ onClose }) {
       return
     };
     
-    children.forEach(async (child) => {
-      const { data: data2, error: error2 } = await supabase.from('children').insert({
-        name: child.name,
-        dob: child.dob,
-        homeschooled: child.homeschooled,
-        health_info: child.healthInfo,
-        user_id: data1[0].id
-      })
+    // Object.keys(forEach(async (child) => {
+    //   const { data: data2, error: error2 } = await supabase.from('children').insert({
+    //     name: child.name,
+    //     dob: child.dob,
+    //     homeschooled: child.homeschooled,
+    //     health_info: child.healthInfo,
+    //     user_id: data1[0].id
+    //   })
 
-      if (error2) {
-        console.error(error2)
-      }
-    });
+    //   if (error2) {
+    //     console.error(error2)
+    //   }
+    // });
 
     onClose()
   }
@@ -80,7 +85,7 @@ export default function Form({ onClose }) {
           <Button isDisabled className='mt-4 w-full bg-red-500 text-white'>Register</Button> :
           <Button className='mt-4 w-full bg-red-500 text-white' onPress={submitForm}>Register</Button>
         }
-        {/* <Button color="secondary" onPress={() => console.log(children)} >Test Children</Button> */}
+        <Button color="secondary" onPress={() => console.log(children)} >Test Children</Button>
       </div>
     </div>
   )
