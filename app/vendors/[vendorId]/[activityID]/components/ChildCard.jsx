@@ -1,6 +1,6 @@
 import { Card, CardBody } from "@nextui-org/react";
 
-export default function ChildCard({child}) {
+export default function ChildCard({child, deleteButton}) {
   return (
     <Card>
       <CardBody>
@@ -8,6 +8,7 @@ export default function ChildCard({child}) {
         <p>date of birth: {child.dob}</p>
         <p>homeschooled: {child.homeschooled ? 'yes' : 'no'}</p>
         <p>health information: {child.healthInfo}</p>
+        {deleteButton}
       </CardBody>
     </Card>
   )

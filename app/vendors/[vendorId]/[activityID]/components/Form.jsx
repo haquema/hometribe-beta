@@ -3,6 +3,7 @@ import { Input, Button, ButtonGroup } from "@nextui-org/react";
 import { createClient } from "@/utils/supabase/client";
 import ChildFormComponent from "../archive/ChildForm";
 import ChildCard from "./ChildCard";
+import DeleteButton from "./RemoveChildCard";
 
 export default function Form({ onClose }) {
   const [parentDetails, setParentDetails] = useState({})
@@ -24,7 +25,7 @@ export default function Form({ onClose }) {
     let content = [];
     let keys = Object.keys(children)
     keys.forEach((key) => {
-      content.push(<li className="list-none" key={key}><ChildCard child={children[key]} /></li>)
+      content.push(<li className="list-none" key={key}><ChildCard child={children[key]} deleteButton={<DeleteButton children={children} setChildren={setChildren} childIdentifier={key} />} /></li>)
     });
 
     return content;
