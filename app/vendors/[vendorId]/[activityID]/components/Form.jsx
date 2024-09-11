@@ -10,8 +10,8 @@ export default function Form({ onClose }) {
   const [children, setChildren] = useState({})
   const [visible, setVisible] = useState(false)
 
-  const noChildren = children.length === 0;
-  const maxChildren = children.length === 4
+  const noChildren = Object.keys(children).length === 0;
+  const maxChildren = Object.keys(children).length === 4
 
   function showChildForm() {
     setVisible(true);
@@ -65,17 +65,17 @@ export default function Form({ onClose }) {
   return (
     <div className="flex flex-col items-center py-4">
       <form className='flex flex-col items-start w-full p-4' id='form-page-1'>
-        <div className="w-full space-y-2 border border-transparent rounded-lg border-stone-300 px-2">
+        <div className="w-full space-y-2 px-2">
           <p className="font-bold">Parent&apos;s Details</p>
           <Input isRequired isClearable size="sm" type='text' label='Name' onValueChange={(value) => setParentDetails({...parentDetails, name: value})} className="w-full" />
           <Input isRequired isClearable size="sm" type='email' label='Email' onValueChange={(value) => setParentDetails({...parentDetails, email: value})} className="w-full" />
           <Input isRequired isClearable size="sm" type='tel' label='Mobile' onValueChange={(value) => setParentDetails({...parentDetails, mobile: value})} description="Requested by the vendor" className="w-full" />
         </div>
       </form>
-      <div className="border border-transparent border-stone-300 rounded-lg p-4 px-6">
+      <div className="p-4 px-6 flex flex-col items-start w-full">
         <p className="font-bold">Children</p>
         {noChildren && !visible && <p className="text-sm font-light">You haven&apos;t registered a child yet. Press the add child button to do so!</p>}
-        {!noChildren && populateCards()}
+        <div className="flex flex-wrap space-x-4">{!noChildren && populateCards()}</div>
       </div>
       {visible && <ChildFormComponent buttonProps={{ hideChildForm: hideChildForm, children: children, setChildren: setChildren }} />}
       <div className="flex flex-col w-full gap-2 justify-evenly px-6 py-2">

@@ -2,12 +2,12 @@ import { Card, CardBody } from "@nextui-org/react";
 
 export default function ChildCard({child, deleteButton}) {
   return (
-    <Card>
+    <Card radius="sm" shadow="md" className="max-w-40">
       <CardBody>
-        <p>name: {child.name}</p>
-        <p>date of birth: {child.dob}</p>
-        <p>homeschooled: {child.homeschooled ? 'yes' : 'no'}</p>
-        <p>health information: {child.healthInfo}</p>
+        <p>Name: {child.name}</p>
+        <p>Date of Birth: {child.dob}</p>
+        <p>Homeschooled: {child.homeschooled ? 'yes' : 'no'}</p>
+        <p>Health Information: {child.healthInfo}</p>
         {deleteButton}
       </CardBody>
     </Card>

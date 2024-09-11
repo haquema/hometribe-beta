@@ -27,17 +27,17 @@ export default async function EventPage() {
           priority={true}
         />
         <h1 className="font-semibold text-2xl self-start px-2 ">{eventInfo.name}</h1>
-        <div className=" w-full flex flex-col justify-evenly items-start px-2">
+        <div className=" w-full flex justify-start gap-8 items-start px-1 ">
           <div className="flex items-center space-x-2">
-            <CalendarDaysIcon className="size-11" />
+            <CalendarDaysIcon className="size-11 text-stone-500 stroke-1" />
             <div className="flex flex-col">
-              <p className="text-base font-semibold">Tuesdays</p>
-              <p className="text-sm text-stone-500">10am to 2pm</p>
+              <p className="text-sm text-stone-600 font-semibold">Tuesdays</p>
+              <p className="text-xs text-stone-500">10am to 2pm</p>
             </div>
           </div>
           <div className="flex items-center space-x-2">
-            <BanknotesIcon className="size-11" />
-            <p className="text-base font-semibold">£10/session</p>
+            <BanknotesIcon className="size-11 text-stone-500 stroke-1" />
+            <p className="text-sm text-stone-600 font-semibold">£10/session</p>
           </div>
         </div>
         <div className="px-2 flex flex-col w-full items-start gap-4">
